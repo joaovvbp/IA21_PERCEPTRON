@@ -3,20 +3,20 @@ import java.io.FileNotFoundException;
 public class Perceptron {
     final static double taxaAprendizado = 0.1;
     final static int x0 = 1;
-    static double[] pesos = {0.5, 0.5, 0.5, 0.5, 0.5};
+    static double[] pesos = {-0.5, 0.7, -0.2, 0.1, 0.9};
     static int saida;
     static double[] erro = new double[5];
 
-    public static void treinar() throws FileNotFoundException {
+    public static void treinar() throws FileNotFoundException { // COLOCAR UMA ENTRADA FIXA!!!!!!!! AAAAA -1,-1,1,1,-1
         ler();
         holdout();
-        double somaPonderada = somaPonderada(Holdout.conjTreinamento.get(0));
+        double somaPonderada = somaPonderada(Holdout.conjTreinamento.get(7));
         funcaoAtivacao(somaPonderada);
-        calculaErro(Holdout.conjTreinamento.get(0));
+        calculaErro(Holdout.conjTreinamento.get(7));
         ajustaPesos();
     }
 
-    public static void teste(){
+    public static void teste() {
 
     }
 
@@ -24,7 +24,7 @@ public class Perceptron {
         LerDados.lerDados("src/main/resources/dados.csv");
     }
 
-    public static void holdout(){ //Mudar para outros métodos de divisão
+    public static void holdout() { //Mudar para outros métodos de divisão
         Holdout.dividir();
     }
 
@@ -57,5 +57,4 @@ public class Perceptron {
             pesos[i] += erro[i];
         }
     }
-
 }

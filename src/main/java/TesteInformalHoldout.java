@@ -2,8 +2,11 @@ import java.io.FileNotFoundException;
 
 public class TesteInformalHoldout {
     public static void main(String[] args) throws FileNotFoundException {
-        Perceptron.ler();
-        Holdout.dividir();
-        Holdout.exibirTaxaDiv();
+        Perceptron.treinar();
+        System.out.println(Perceptron.pesos[0]);
+        System.out.println(Perceptron.pesos[1]);
+        System.out.println(Perceptron.pesos[2]);
+        System.out.println(Perceptron.pesos[3]);
+        System.out.println(Perceptron.pesos[4]);
     }
 }
