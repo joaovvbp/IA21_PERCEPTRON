@@ -1,7 +1,13 @@
+import java.io.FileNotFoundException;
+
 public class Perceptron {
     final double n = 0.1;
     final int x0 = 1;
     double[] pesos = {0.5,0.5,0.5,0.5,0.5};
+
+    public static void ler() throws FileNotFoundException {
+        LerDados.lerDados("dados.txt");
+    }
 
     public double soma_Ponderada(int[] entrada){//Entrada com 5 valores, o primeiro sendo o rotulo
         double somaponderada = 0;

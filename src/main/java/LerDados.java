@@ -23,6 +23,7 @@ public class LerDados {
             }
             vetores.add(entradaInteger);
         }
+        System.out.println("Tamanho: "+vetores.size());
 
     }
 }

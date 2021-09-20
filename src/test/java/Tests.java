@@ -2,6 +2,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileNotFoundException;
+
 public class Tests {
     Perceptron teste = new Perceptron();
     int vetorEntrada[] = {0,0,0,0};
@@ -17,5 +19,16 @@ public class Tests {
         Assertions.assertEquals(vetorSaida1, teste.calcula_Erro(vetorEntrada, 0));
     }
 */
+    @Test
+    public void Testar() {
+        try {
+            Perceptron.ler();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Holdout.dividir();
+        Holdout.exibirTaxaDiv();
+    }
 }
 
