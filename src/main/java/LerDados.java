@@ -11,14 +11,14 @@ public class LerDados {
     static void lerDados(String nome) throws FileNotFoundException {
 
         String[] entradaString;
-        Integer[] entradaInteger = new Integer[4];
+        Integer[] entradaInteger = new Integer[5];
 
         Scanner in = new Scanner(new FileReader(nome));
 
         while (in.hasNextLine()) {
             String line = in.nextLine();
             entradaString = line.split(",");
-            for(int i=0;i<4;i++){
+            for(int i=0;i<entradaInteger.length;i++){
                 entradaInteger[i] = Integer.parseInt(entradaString[i]);
             }
             vetores.add(entradaInteger);
