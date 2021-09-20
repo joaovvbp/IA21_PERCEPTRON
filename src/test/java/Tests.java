@@ -4,14 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
 
-public class Tests {
+class Tests {
     Perceptron teste = new Perceptron();
-    int vetorEntrada[] = {1,1,1,1};
-    int vetorSaida1[] = {0,0,0,0};
+    Integer[] vetorEntrada = {1,1,1,1};
 
     @Test
-    public void testeSomaPonderada1(){
-        Assertions.assertEquals(2, teste.soma_Ponderada(vetorEntrada));
+    void testeSomaPonderada1(){
+        Assertions.assertEquals(2, teste.somaPonderada(vetorEntrada));
     }
 /*
     @Test
@@ -20,15 +19,9 @@ public class Tests {
     }
 */
     @Test
-    public void Testar() {
-        try {
-            Perceptron.ler();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        Holdout.dividir();
-        Holdout.exibirTaxaDiv();
+    void testarPerceptron() throws FileNotFoundException {
+        Perceptron.treinar();
+        Assertions.assertEquals();
     }
 }
 

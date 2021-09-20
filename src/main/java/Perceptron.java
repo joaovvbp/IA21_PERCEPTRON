@@ -1,15 +1,34 @@
 import java.io.FileNotFoundException;
 
 public class Perceptron {
-    final double taxaAprendizado = 0.1;
-    final int x0 = 1;
+    final static double taxaAprendizado = 0.1;
+    final static int x0 = 1;
     static double[] pesos = {0.5, 0.5, 0.5, 0.5, 0.5};
+    static int saida;
+    static double[] erro = new double[5];
 
-    public static void ler() throws FileNotFoundException {
-        LerDados.lerDados("/home/joao/IdeaProjects/IA21_PERCEPTRON/src/main/resources/dados.csv");
+    public static void treinar() throws FileNotFoundException {
+        ler();
+        holdout();
+        double somaPonderada = somaPonderada(Holdout.conjTreinamento.get(0));
+        funcaoAtivacao(somaPonderada);
+        calculaErro(Holdout.conjTreinamento.get(0));
+        ajustaPesos();
     }
 
-    public double soma_Ponderada(int[] entrada) {//Entrada com 5 valores, o primeiro sendo o rotulo
+    public static void teste(){
+
+    }
+
+    public static void ler() throws FileNotFoundException {
+        LerDados.lerDados("src/main/resources/dados.csv");
+    }
+
+    public static void holdout(){ //Mudar para outros métodos de divisão
+        Holdout.dividir();
+    }
+
+    public static double somaPonderada(Integer[] entrada) {//Entrada com 5 valores, o primeiro sendo o rotulo
         double somaponderada = 0;
 
         somaponderada += 1 * pesos[0];
@@ -21,24 +40,21 @@ public class Perceptron {
         return somaponderada;
     }
 
-    public int funcaoAtivacao(int entrada[], double somaponderada) {
-        if (somaponderada > 0) return 1;
-        return -1;
+    public static void funcaoAtivacao(double somaponderada) {
+        if (somaponderada > 0) saida = 1;
+        else saida = -1;
     }
 
-    public double[] calculaErro(int[] entrada, int saida) {
-        double[] erro = new double[entrada.length];
-
+    public static void calculaErro(Integer[] entrada) {
         for (int i = 0; i < entrada.length; i++) {
-            erro[i] = taxaAprendizado * (entrada[0] - saida) * entrada[i];
+            erro[i] = taxaAprendizado * (entrada[0] - saida) * x0;
         }
 
-        return erro;
     }
 
-    public void ajustaPesos(int[] entrada, double[] erro) {
-        for (int i = 1; i < pesos.length; i++) {
-            pesos[i] += erro[i-1];
+    public static void ajustaPesos() {
+        for (int i = 0; i < pesos.length; i++) {
+            pesos[i] += erro[i];
         }
     }
 
