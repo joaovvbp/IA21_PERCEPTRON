@@ -6,12 +6,12 @@ import java.io.FileNotFoundException;
 
 public class Tests {
     Perceptron teste = new Perceptron();
-    int vetorEntrada[] = {0,0,0,0};
+    int vetorEntrada[] = {1,1,1,1};
     int vetorSaida1[] = {0,0,0,0};
 
     @Test
     public void testeSomaPonderada1(){
-        Assertions.assertEquals(0.5, teste.soma_Ponderada(vetorEntrada));
+        Assertions.assertEquals(2, teste.soma_Ponderada(vetorEntrada));
     }
 /*
     @Test

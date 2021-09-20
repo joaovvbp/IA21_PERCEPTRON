@@ -5,7 +5,5 @@ public class TesteInformalHoldout {
         Perceptron.ler();
         Holdout.dividir();
         Holdout.exibirTaxaDiv();
-
     }
-
 }
