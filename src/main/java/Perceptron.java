@@ -53,7 +53,6 @@ public class Perceptron {
         for (int i = 0; i < entrada.length; i++) {
             erro[i] = taxaAprendizado * (entrada[0] - saida) * entrada[i];
         }
-int x = 1;
     }
 
     public static void ajustaPesos() {
