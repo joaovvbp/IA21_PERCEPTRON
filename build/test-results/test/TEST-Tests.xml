@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Tests" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-09-20T17:55:46" hostname="GUSTAVO-PC" time="0.053">
+  <properties/>
+  <testcase name="Testar()" classname="Tests" time="0.053"/>
+  <system-out><![CDATA[% conjunto de teste: 211
+% conjunto de treinamento: 111
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
