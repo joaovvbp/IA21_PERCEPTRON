@@ -1,8 +1,8 @@
+TesteInformalHoldout.java
+ TesteInformalHoldout
 Perceptron.java
  Perceptron
 LerDados.java
  LerDados
-TesteInformalHoldout.java
- TesteInformalHoldout
 Holdout.java
  Holdout
