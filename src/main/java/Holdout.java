@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Holdout {
 
-    static List<Integer[]> conjTreinamento = new ArrayList<>();
-    static List<Integer[]> conjTeste = new ArrayList<>();
+    static List<Integer[]> conjTreinamento = new ArrayList<Integer[]>();
+    static List<Integer[]> conjTeste = new ArrayList<Integer[]>();
     static Random random = new Random();
     static double taxaConjTeste = 0.3; //% de elementos no conjunto de teste
     static double taxaTeste = 0.0; //Não mudar
