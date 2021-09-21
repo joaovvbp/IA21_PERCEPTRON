@@ -4,16 +4,20 @@ public class Perceptron {
     final static double taxaAprendizado = 0.1;
     final static int x0 = 1;
     static double[] pesos = {-0.5, 0.7, -0.2, 0.1, 0.9};
+    static Integer[] entradasFixas = {1,-1,1,1,-1};
     static int saida;
     static double[] erro = new double[5];
 
     public static void treinar() throws FileNotFoundException { // COLOCAR UMA ENTRADA FIXA!!!!!!!! AAAAA -1,-1,1,1,-1
         ler();
         holdout();
-        double somaPonderada = somaPonderada(Holdout.conjTreinamento.get(7));
+        double somaPonderada = somaPonderada(entradasFixas);
+        System.out.println("Soma ponderada: "+somaPonderada);
         funcaoAtivacao(somaPonderada);
-        calculaErro(Holdout.conjTreinamento.get(7));
-        ajustaPesos();
+        calculaErro(entradasFixas);
+        if(saida != entradasFixas[0]) {
+            ajustaPesos();
+        }
     }
 
     public static void teste() {
@@ -47,9 +51,9 @@ public class Perceptron {
 
     public static void calculaErro(Integer[] entrada) {
         for (int i = 0; i < entrada.length; i++) {
-            erro[i] = taxaAprendizado * (entrada[0] - saida) * x0;
+            erro[i] = taxaAprendizado * (entrada[0] - saida) * entrada[i];
         }
-
+int x = 1;
     }
 
     public static void ajustaPesos() {
